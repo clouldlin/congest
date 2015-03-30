@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    					http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    					http://www.springframework.org/schema/context
+    					http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    					http://www.springframework.org/schema/jee
+    					http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<!-- <property name="url" value="jdbc:sqlserver://192.168.40.26:1433;DatabaseName=IktdbWeb" /> -->
+		<property name="url" value="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=IktdbWeb" />
+		<property name="username" value="IktdbUser" />
+		<property name="password" value="ktdb1234" />
+	</bean>
+
+	<!-- 	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" />
+		<property name="username" value="qbic" />
+		<property name="password" value="qbic" />
+	</bean>
+	-->	
+</beans>

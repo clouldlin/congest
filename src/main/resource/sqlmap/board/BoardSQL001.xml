@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="BoardSQL001">
+
+	<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+
+	<resultMap id="clobMap" class="EgovMap">
+		<result property="board_id" column="BOARD_ID"/>
+		<result property="title" column="TITLE"/>
+		<result property="content" column="CONTENT" jdbcType="CLOB" javaType="java.lang.String"/>
+		<result property="reg_date" column="REG_DATE"/>	
+		<result property="hit_count" column="HIT_COUNT"/>	
+		<result property="file_id" column="FILE_ID"/>
+	</resultMap>
+
+	<select id="list" parameterClass="java.util.Map" resultMap="clobMap">
+			SELECT * 
+		 	 FROM 
+		       (SELECT ROW_NUMBER() OVER(ORDER BY BOARD_ID DESC) RNUM, * 
+		         FROM BOARD  
+				) BOARD		
+		      	<![CDATA[
+					 WHERE RNUM BETWEEN #firstIndex# AND #lastIndex#
+	    		]]>
+	</select>
+	
+	<select id="listTotalCount" parameterClass="java.util.Map" resultClass="int">
+		SELECT COUNT(*) totcnt
+		FROM BOARD 
+	</select>
+	
+	<select id="view" parameterClass="java.util.Map" resultMap="clobMap">
+		SELECT t1.BOARD_ID, t1.TITLE, t1.CONTENT, t1.REG_DATE, t1.HIT_COUNT, t1.FILE_ID 
+		FROM BOARD t1
+		WHERE t1.BOARD_ID = #boardId#
+	</select>
+	
+	<delete id="delete" parameterClass="java.util.Map">
+	 	DELETE BOARD t1
+      	WHERE t1.BOARD_ID = #board_id#
+	</delete>
+	
+	<insert id="insert" parameterClass="java.util.Map">
+  	  	INSERT INTO BOARD (BOARD_ID,
+        	               TITLE,
+            	           CONTENT,
+            	           REG_DATE,
+            	           HIT_COUNT,
+            	           FILE_ID)
+       <![CDATA[
+      		VALUES (#board_id#			,
+        		    #title# 			,
+            		#txt_content#		,
+            		getdate() 			,
+            		'0'	  				,
+            		#file_id#
+            		)
+     	]]>       	
+	</insert>
+	
+	<update id="updateHitCount" parameterClass="java.util.Map">
+		UPDATE BOARD
+		   SET HIT_COUNT = HIT_COUNT + 1
+		 WHERE BOARD_ID = #boardId#
+	</update>
+	
+</sqlMap>

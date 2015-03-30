@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="imagetoolbar" content="no">
+		<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+		<title>Congestion Map Version 2.0</title>
+		<style>
+		<!--
+			/* First Level UL List */
+			#accordion
+			{
+				margin:0;
+				padding:0;	
+				list-style:none;
+			}
+			
+				#accordion li
+				{
+					width:733px;
+					border:1px solid #ddd;
+				}
+
+				#accordion .q_list
+				{
+					margin-bottom:11px;
+				}
+			
+				#accordion li a 
+				{
+					display: block;
+					width: 733px;
+					height: 44px;	
+					text-indent:-999em;
+					outline:none;
+				}
+
+				#accordion .heavy a 
+				{
+					display: block;
+					width: 733px;
+					height: 58px;	
+					text-indent:-999em;
+					outline:none;
+				}
+				
+				/* Using CSS Sprite for menu item */
+				#accordion li a.q1 
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px 0px;	
+				}
+
+				#accordion li a.q1:hover, .q1Over 
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px 0px !important;	
+				}
+				
+				#accordion li a.q2 
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -58px;	
+				}
+
+				#accordion li a.q2:hover, .q2Over 
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -58px !important;	
+				}
+				
+				#accordion li a.q3 
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -116px;	
+				}
+
+				#accordion li a.q3:hover, .q3Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -116px !important;	
+				}
+				#accordion li a.q4
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -174px;	
+				}
+
+				#accordion li a.q4:hover, .q4Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -174px !important;	
+				}
+				#accordion li a.q5
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -232px;	
+				}
+
+				#accordion li a.q5:hover, .q5Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -232px !important;	
+				}
+				#accordion li a.q6
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -303px;	
+				}
+
+				#accordion li a.q6:hover, .q6Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -303px !important;	
+				}
+				#accordion li a.q7
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -361px;	
+				}
+
+				#accordion li a.q7:hover, .q7Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -361px !important;	
+				}
+				#accordion li a.q8
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -419px;	
+				}
+
+				#accordion li a.q8:hover, .q8Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -419px !important;	
+				}
+				#accordion li a.q9
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -477px;	
+				}
+
+				#accordion li a.q9:hover, .q9Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -477px !important;	
+				}
+				#accordion li a.q10
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -535px;	
+				}
+
+				#accordion li a.q10:hover, .q10Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -535px !important;	
+				}
+				#accordion li a.q11
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -594px;	
+				}
+
+				#accordion li a.q11:hover, .q11Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -594px !important;	
+				}
+				#accordion li a.q12
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -651px;	
+				}
+
+				#accordion li a.q12:hover, .q12Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -651px !important;	
+				}
+				#accordion li a.q13
+				{
+					background:url(./images/faq/q_list.png) no-repeat 0px -709px;	
+				}
+
+				#accordion li a.q13:hover, .q13Over
+				{
+					background:url(./images/faq/q_list.png) no-repeat -734px -709px !important;	
+				}
+				
+				
+				/* Second Level UL List*/
+				#accordion ul
+				{
+					width:733px;
+					margin:0;
+					padding:0;
+					display:none;	
+				}
+				
+					#accordion ul li
+					{
+					}
+
+					#accordion li .answer
+					{
+					background:#efefef;
+					border:0px;
+					}
+					
+					/* styling of submenu item */
+					#accordion ul li a
+					{
+						width:733px;
+						text-indent:0;
+						color:#ccc;
+						text-decoration:none;
+					}
+
+					/* remove border bottom of the last item */
+					#accordion ul li a.last
+					{
+						border-bottom: none;
+					}	
+		//-->			
+		</style>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/default.css">
+		
+		<!--[if lte IE 8]>
+		<script src="js/html5.js"></script>
+		<![endif]-->		
+
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.menu.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/wrest.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script>
+			$(document).ready(function ()
+			{
+				
+				$('#accordion a.item').click(function ()
+				{
+
+					//slideup or hide all the Submenu
+					$('#accordion li').children('ul').slideUp('fast');	
+					
+					//remove all the "Over" class, so that the arrow reset to default
+					$('#accordion a.item').each(function ()
+					{
+						if ($(this).attr('rel')!='')
+						{
+							$(this).removeClass($(this).attr('rel') + 'Over');	
+						}
+					});
+					
+					//show the selected submenu
+					$(this).siblings('ul').slideDown('fast');
+					
+					//add "Over" class, so that the arrow pointing down
+					$(this).addClass($(this).attr('rel') + 'Over');			
+
+					return false;
+
+				});
+			
+			});	
+		</script>
+	</head>
+
+	<body>
+		<header class="top">
+			<img id="headerLogo" src="images/logo.png" alt="The smartest map in the world - QbicMap">
+			<img id="headerSlogan" src="images/slogan.png" alt="You can find the place making you happy!!">
+		</header>
+		
+		<!-- 메뉴 네비게이션 영역 -->
+		<nav>
+			<ul>
+				<li><a href="WhatIsCongestionMap.html">혼잡지도란</a></li>
+				<li><a href="WhatIsCongestion.html">혼잡이란</a></li>
+				<li><a href="index.html">혼잡지표</a></li>
+				<li><a href="congestion_cost.html">혼잡비용</a></li>
+				<li><a href="congestion_volume.html">교통량</a></li>
+				<li><a href="congestion_speed.html">속도</a></li>
+				<li class="selected"><a href="faq.html">FAQ</a></li>
+				<li><a href="help.html">HELP</a></li>
+			</ul>
+		</nav>
+
+		<section id="explanation">
+		<!--  
+			<div class="content_wrap">
+				<div class="content f_r">
+		-->			<ul id="accordion">
+						<li class="q_list">
+							<a href="#" class="item q1" rel="q1">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/1.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q2" rel="q2">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/2.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q3" rel="q3">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/3.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q4" rel="q4">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/4.png"></li>
+							</ul>
+						</li>
+						<li class="q_list heavy">
+							<a href="#" class="item q5" rel="q5">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/5.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q6" rel="q6">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/6.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q7" rel="q7">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/7.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q8" rel="q8">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/8.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q9" rel="q9">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/9.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q10" rel="q10">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/10.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q11" rel="q11">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/11.png"></li>
+							</ul>
+						</li>
+						<li class="q_list">
+							<a href="#" class="item q12" rel="q12">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/12.png"></li>
+							</ul>
+						</li>
+						<li class="q_list heavy">
+							<a href="#" class="item q13" rel="q13">Popular Post</a>
+							<ul>
+								<li class="answer"><img src="images/faq/13.png"></li>
+							</ul>
+						</li>
+					</ul>
+<!--    		</div>
+			</div>
+-->		</section>
+
+		<!-- footer 영역: 개발시에는 디버그 용으로 사용된다. -->
+		<div id="footer">
+			&copy; 2014, QBICWARE
+			<br>
+			Copyright 2014 Qbicware Inc. All rights resered.
+		</div>
+
+		<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+		<!--[if lte IE 7]>
+		<script>
+		$(function() {
+		    var $sv_use = $(".sv_use");
+		    var count = $sv_use.length;
+
+		    $sv_use.each(function() {
+		        $(this).css("z-index", count);
+		        $(this).css("position", "relative");
+		        count = count - 1;
+		    });
+		});
+		</script>
+		<![endif]-->
+
+	</body>
+</html>

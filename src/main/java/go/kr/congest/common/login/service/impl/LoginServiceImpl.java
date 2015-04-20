@@ -1,4 +1,7 @@
-package co.kr.qbic.common.login.service.impl;
+package go.kr.congest.common.login.service.impl;
+
+import go.kr.congest.common.login.service.LoginService;
+import go.kr.congest.common.vo.LoginVO;
 
 import java.util.Map;
 
@@ -6,11 +9,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import co.kr.qbic.common.login.service.LoginService;
-import co.kr.qbic.common.vo.LoginVO;
-
 @Service("loginService")
-public class LoginServiceImpl  implements LoginService{
+public class LoginServiceImpl  implements LoginService {
 
 	@Resource(name="loginDAO")
 	private LoginDAO loginDAO;

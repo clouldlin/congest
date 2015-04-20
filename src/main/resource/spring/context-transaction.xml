@@ -16,4 +16,5 @@
 	   <tx:method name="*" propagation="REQUIRED" rollback-for="Exception"/>
 	   </tx:attributes>
 	</tx:advice>
+
 </beans>

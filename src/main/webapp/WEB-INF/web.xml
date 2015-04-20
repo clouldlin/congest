@@ -8,7 +8,7 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-	
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -31,7 +31,7 @@
 	</listener>
 
 	<servlet>
-		<servlet-name>congest</servlet-name>
+		<servlet-name>qbic</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
@@ -40,7 +40,7 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>congest</servlet-name>
+		<servlet-name>qbic</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	

@@ -1,10 +1,10 @@
-package co.kr.qbic.common.login.service.impl;
+package go.kr.congest.common.login.service.impl;
 
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
+import go.kr.congest.common.vo.LoginVO;
 
-import co.kr.qbic.common.vo.LoginVO;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
 @Repository("loginDAO")

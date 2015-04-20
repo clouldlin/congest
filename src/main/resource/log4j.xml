@@ -11,7 +11,7 @@
     </appender>
 
     <appender name="File" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="C:\Dropbox\logs\congest\congest.log" />
+        <param name="File" value="C:\logs\congest.log" />
         <param name="DatePattern" value="'.'yyyy-MM-dd-HH"/>  
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %5p [%c] %m%n" />

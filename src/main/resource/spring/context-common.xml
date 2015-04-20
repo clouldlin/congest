@@ -15,26 +15,7 @@
     <context:component-scan base-package="go.kr.congest">
        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
-    
-   	<!-- 메시지소스빈 설정 -->
-    <bean id="commonMessageSource" class="go.kr.congest.common.message.CommonMessageSource">
-        <property name="reloadableResourceBundleMessageSource">
-            <ref bean="messageSource" />
-        </property> 
-    </bean>
-    
-    <!-- 프로퍼티 파일 위치 설정 -->
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basenames">
-            <list>
-                <value>classpath:/message/com/message-common</value>
-            </list>
-        </property>
-        <property name="cacheSeconds">
-            <value>60</value>
-        </property>
-    </bean>   
-    
+	
     <bean class="egovframework.rte.fdl.cmmn.trace.LeaveaTrace" id="leaveaTrace">
         <property name="traceHandlerServices">
             <list>
@@ -62,11 +43,5 @@
     <bean class="org.springframework.util.AntPathMatcher" id="antPathMater"/>
 
     <bean class="egovframework.rte.fdl.cmmn.trace.handler.DefaultTraceHandler" id="defaultTraceHandler"/>
-	
-    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="spring.RegularCommonsMultipartResolver">
-        <property name="maxUploadSize" value="100000000"/>
-        <property name="maxInMemorySize" value="100000000"/>
-    </bean>
 
-    <alias alias="multipartResolver" name="spring.RegularCommonsMultipartResolver"/>
 </beans>

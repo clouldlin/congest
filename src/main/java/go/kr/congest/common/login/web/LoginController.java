@@ -1,10 +1,5 @@
 package go.kr.congest.common.login.web;
 
-import go.kr.congest.common.Constants;
-import go.kr.congest.common.controller.CommonAbstarctController;
-import go.kr.congest.common.login.service.LoginService;
-import go.kr.congest.common.vo.LoginVO;
-
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,6 +12,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
 
+import go.kr.congest.common.Constants;
+import go.kr.congest.common.controller.CommonAbstarctController;
+import go.kr.congest.common.login.service.LoginService;
+import go.kr.congest.common.vo.LoginVO;
 
 @Controller
 @RequestMapping("/member/")
@@ -39,8 +38,9 @@ public class LoginController extends CommonAbstarctController{
     		loginSessionManager.setSession(loginVO);
         	return "redirect:/map/map.do";
     	}else{
+    		// logger.info(commonMessageSource.getMessage("fail.common.login"));
     		model.addAttribute("flag" ,"0");
-	    	model.addAttribute("message"   ,"아이디 또는 비밀번호가 일치하지 않습니다.");
+	    	model.addAttribute("message", "로그인 정보가 올바르지 않습니다");
 	    	
 	    	return "forward:/map/map.do";
     	}

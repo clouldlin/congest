@@ -1,8 +1,5 @@
 package go.kr.congest.common.login;
 
-import go.kr.congest.common.Constants;
-import go.kr.congest.common.vo.LoginVO;
-
 import java.io.Serializable;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +7,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.WebUtils;
+
+import go.kr.congest.common.Constants;
+import go.kr.congest.common.vo.LoginVO;
 
 @Service(value = "loginSessionManager")
 public class LoginSessionManager implements Serializable {

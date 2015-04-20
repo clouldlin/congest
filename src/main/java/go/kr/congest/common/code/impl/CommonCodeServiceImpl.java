@@ -1,4 +1,5 @@
 package go.kr.congest.common.code.impl;
+
 import go.kr.congest.common.code.CommonCodeService;
 import go.kr.congest.common.vo.CommonVO;
 

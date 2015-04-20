@@ -11,18 +11,20 @@
 %>
 <head>
 <meta http-equiv="Content-Type" 	content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" 	content="IE=Edge" />
+<!-- <meta http-equiv="X-UA-Compatible" 	content="IE=Edge" /> -->
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
 <title>QBic Web</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/common/jquery/jquery-ui-1.9.2.custom.css'/>" />
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/common/jquery/jquery.ui.all.css'/>" />
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/common/jquery/jquery.ui.datepicker.css'/>" />
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/common/common.css'/>" />
+<%-- <link type="text/css" rel="stylesheet" href="<c:url value='/css/common/bootstrap/bootstrap.min.css'/>" />  --%>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/common/jui/jui.min.css'/>" />
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/login/login.css'/>" />
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/board/board.css'/>" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/map/map.css'/>" />
 <script type="text/javascript">
 var baseUrl		= 	"<%=contextPath%>/";
 </script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="<c:url value='/js/common/jquery/jquery-1.9.1.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/common/jquery/jquery-ui-1.9.2.custom.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/common/jquery/jquery.ui.core.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/common/jquery/jquery.ui.button.js'/>"></script>
@@ -35,6 +37,15 @@ var baseUrl		= 	"<%=contextPath%>/";
 <script type="text/javascript" src="<c:url value='/js/common/jquery/jquery.validate.min.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/common/jquery/jquery.alphanumeric.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/common/jquery/jquery.MultiFile.js'/>"></script>
+
+<%-- <script type="text/javascript" src="<c:url value='/js/common/bootstrap/bootstrap.min.js'/>"></script> --%> 
+<script type="text/javascript" src="<c:url value='/js/common/jui/jui.min.js'/>"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/map/ui.js"></script>
+
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
 
 <script type="text/javascript" src="<c:url value='/js/common/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/common/login/login.js'/>"></script>

@@ -11,7 +11,7 @@
 	String baseURL 		 = "http://" + request.getServerName()+ ":" + request.getServerPort() + request.getContextPath();
 	String contextPath   = request.getContextPath();
 	
-	LoginVO loginVO = (LoginVO)session.getAttribute("co.kr.qbic");
+	LoginVO loginVO = (LoginVO)session.getAttribute("go.kr.congest");
 	
 	String userId = "";
 	String userName = "";

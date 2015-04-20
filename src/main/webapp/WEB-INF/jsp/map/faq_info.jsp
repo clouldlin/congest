@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8" language="java" %> 
 <%@ include file="/WEB-INF/jsp/common/inc/taglib.jsp"%>
-<c:import url="/WEB-INF/jsp/common/inc/map/common.jsp" />
+<c:import url="/WEB-INF/jsp/map/inc/common.jsp" />
 <style>
 		<!--
 			/* First Level UL List */
@@ -228,103 +228,100 @@ $(document).ready(function ()
 </script>
 </head>
 <body class="jui"> 
-<!-- wrap start -->
-<div id="content_map">
-	<!-- header start -->
-	<div id="header_map">
-		<c:import url="/WEB-INF/jsp/common/inc/map/header.jsp" />
-	</div>
-	<c:import url="/WEB-INF/jsp/common/inc/map/login.jsp" />
+		<div id="content_map">
 
-	<div class="content_area">
-		<ul id="accordion">
-			<li class="q_list">
-				<a href="#" class="item q1" rel="q1">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/1.png"></li>
+			<div id="header_map">
+				<c:import url="/WEB-INF/jsp/map/inc/header.jsp" />
+			</div>
+			
+			<c:import url="/WEB-INF/jsp/map/inc/login.jsp" />
+		
+			<div class="content_area">
+				<ul id="accordion">
+					<li class="q_list">
+						<a href="#" class="item q1" rel="q1">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/1.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q2" rel="q2">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/2.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q3" rel="q3">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/3.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q4" rel="q4">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/4.png"></li>
+						</ul>
+					</li>
+					<li class="q_list heavy">
+						<a href="#" class="item q5" rel="q5">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/5.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q6" rel="q6">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/6.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q7" rel="q7">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/7.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q8" rel="q8">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/8.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q9" rel="q9">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/9.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q10" rel="q10">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/10.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q11" rel="q11">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/11.png"></li>
+						</ul>
+					</li>
+					<li class="q_list">
+						<a href="#" class="item q12" rel="q12">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/12.png"></li>
+						</ul>
+					</li>
+					<li class="q_list heavy">
+						<a href="#" class="item q13" rel="q13">Popular Post</a>
+						<ul>
+							<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/13.png"></li>
+						</ul>
+					</li>
 				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q2" rel="q2">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/2.png"></li>
-				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q3" rel="q3">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/3.png"></li>
-				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q4" rel="q4">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/4.png"></li>
-				</ul>
-			</li>
-			<li class="q_list heavy">
-				<a href="#" class="item q5" rel="q5">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/5.png"></li>
-				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q6" rel="q6">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/6.png"></li>
-				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q7" rel="q7">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/7.png"></li>
-				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q8" rel="q8">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/8.png"></li>
-				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q9" rel="q9">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/9.png"></li>
-				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q10" rel="q10">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/10.png"></li>
-				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q11" rel="q11">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/11.png"></li>
-				</ul>
-			</li>
-			<li class="q_list">
-				<a href="#" class="item q12" rel="q12">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/12.png"></li>
-				</ul>
-			</li>
-			<li class="q_list heavy">
-				<a href="#" class="item q13" rel="q13">Popular Post</a>
-				<ul>
-					<li class="answer"><img src="${pageContext.request.contextPath}/images/map/faq/13.png"></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-</div>
+			</div>
+		</div>
 	
-<!-- footer start -->
-<div id="footer">
-	<c:import url="/WEB-INF/jsp/common/inc/map/footer.jsp" />
-</div>
-<!-- footer end -->
-<!-- wrap end -->
-</body>
+		<div id="footer">
+			<c:import url="/WEB-INF/jsp/map/inc/footer.jsp" />
+		</div>
+	</body>
 </html>

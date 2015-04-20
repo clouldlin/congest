@@ -240,8 +240,6 @@
 				$(this).toggleClass('active');
 				changeMapBaseLayer("openStreetMap");
 			}
-			console.log(map);
-			console.log(map.layers[0].id);
 		});
 		
 	};

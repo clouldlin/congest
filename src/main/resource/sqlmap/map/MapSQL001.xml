@@ -35,7 +35,8 @@
 	
 	<select id="lawdCodeList" parameterClass="java.util.Map" resultClass="egovMap">
 		<![CDATA[
-			SELECT t1.LON, t1.LAT, t1.ZOOM_LEVEL FROM LANDCODE t1
+			SELECT t1.LON, t1.LAT, t1.ZOOM_LEVEL 
+			FROM LANDCODE t1
 			WHERE t1.LAWD_CD = #lawd_cd#
 		]]>
 	</select>

@@ -569,7 +569,7 @@ var showMarkerOnSearchResultLayer = function(a_link, lon, lat) {
 	location.transform(map.displayProjection, map.baseLayer.projection);
 	var size		= new OpenLayers.Size(24, 37);
     var offset 		= new OpenLayers.Pixel(-(size.w/2), -size.h);
-    var icon 		= new OpenLayers.Icon('http://127.0.0.1:9999/qbic/images/map/marker/marker.png', size, offset);
+    var icon 		= new OpenLayers.Icon('http://127.0.0.1:9999/congest/images/map/marker/marker.png', size, offset);
     var marker 		= new OpenLayers.Marker(location, icon.clone());
     // marker.setOpacity(0.2);
     // marker.events.register('mousedown', marker, function(evt) { alert(name + "\n[" + location.lon + ", " + location.lat + "]"); OpenLayers.Event.stop(evt); });
@@ -593,7 +593,7 @@ var showMarkerOnLandCodeResultLayer = function(lon, lat, zoomLevel) {
 	location.transform(map.displayProjection, map.baseLayer.projection);
 	var size		= new OpenLayers.Size(24, 37);
     var offset 		= new OpenLayers.Pixel(-(size.w/2), -size.h);
-    var icon 		= new OpenLayers.Icon('http://127.0.0.1:9999/qbic/images/map/marker/marker.png', size, offset);
+    var icon 		= new OpenLayers.Icon('http://127.0.0.1:9999/congest/images/map/marker/marker.png', size, offset);
     var marker 		= new OpenLayers.Marker(location, icon.clone());
     var popup		= null;
     landCodeMarkers.addMarker(marker);

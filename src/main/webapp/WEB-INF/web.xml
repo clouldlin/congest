@@ -31,7 +31,7 @@
 	</listener>
 
 	<servlet>
-		<servlet-name>qbic</servlet-name>
+		<servlet-name>congest</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
@@ -40,7 +40,7 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>qbic</servlet-name>
+		<servlet-name>congest</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	

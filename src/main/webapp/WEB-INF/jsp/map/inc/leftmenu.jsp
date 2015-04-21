@@ -66,7 +66,7 @@
 						<label for="basic" class="normal">Color&nbsp;</label>
 						<input type="radio" id="gray" name="color_option" value="gray">
 						<label for="gray" class="normal">Grayscale&nbsp;</label>
-					</p> 
+					</p>
 					<p class="marbottom10 txtalignRight">
 						<button type="button" class="btn btn-small" onclick="javascript:initSearchCondition()">초기화</button>
 					</p>
@@ -93,7 +93,7 @@
 			<div class="pad10" style="border-bottom:2px solid #1e65c5;">
 				<fieldset>
 					<p class="marbottom15">
-						<input type="text" style="width:200px; margin-right:7px; ime-mode:active;" id="location_search_value">
+						<input type="text" style="width:200px; margin-right:7px; ime-mode:active;" id="location_search_value" onKeyDown="javascript:if(event.keyCode == 13){ locationSearch()}">
 						<button type="button" class="btn btn-small" onclick="javascript:locationSearch()">검색</button>
 					</p>
 				</fieldset>
@@ -109,23 +109,11 @@
 							<li style="margin:5px; font-weight:bold;">검색 결과가 없습니다.</li>
 						</ul>
 					</div>
-					
 					<div id="paging" class="paging" style="width: 100%; margin-top: 5px;">
 						<div class="list">
 							<a href="#" class="page active">1</a>
 						</div>
 					</div>
-					<!--
-					 	<div id="paging" class="paging" style="width: 100%; margin-top: 5px;">
-							<a href="#" class="prev">이전</a>
-							<div class="list">
-								<a href="#" class="page active">1</a>
-								<a href="#" class="page">2</a>
-								<a href="#" class="page">3</a>
-							</div>
-							<a href="#" class="next">다음</a>
-						</div>
-					 -->
 				</div>	
 			</div>
 		</div>

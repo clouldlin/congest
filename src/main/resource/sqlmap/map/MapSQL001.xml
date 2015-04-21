@@ -51,4 +51,15 @@
 		]]>
 	</select>
 	
+	<select id="getFeatureInfoList" parameterClass="java.util.Map" resultClass="egovMap">
+		<![CDATA[
+			SELECT t1.ID, t1.zone_ID, t1.name, t1.cen_x, t1.cen_y, t1.net_con_wd,
+				   t1.old_con_wd, t1.net_co2_wd, t1.fuel_wd, t1.delay_wd,
+				   t1.net_con_h, t1.old_con_h, t1.fuel_h, t1.delay_h
+	        FROM zone_emd_netcon_wd t1 
+  		  	WHERE t1.[geom].STIntersects(geometry::STGeomFromWKB(geometry::STGeomFromText(#coord#, 0).STAsBinary(), 4326)) =1
+		]]>
+	</select>
+	
+	
 </sqlMap>

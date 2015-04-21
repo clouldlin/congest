@@ -68,7 +68,7 @@ table.featureInfo caption{font-size: 12px; line-height: 10px; width: 100%; heigh
 .pButton {border-radius: 5px; border: 1px solid #bababa; background: #f5f5f5; text-align: center; height: 24px; padding-top: 8px;}
 .contents_info_01 {font-weight: bold; color: #2d2d2d; padding-left: 7px; line-height: 150%;}
 .contents_info_02 li {margin-bottom: 10px; letter-spacing: -0.5px; line-height: 140%; }
-.span_label_head {font-weight: bold; color: #2d2d2d; display: inline-block; width: 60px; padding-left: 7px; background: url("/qbic/images/map/bul_blue.gif") no-repeat 0 center;}
+.span_label_head {font-weight: bold; color: #2d2d2d; display: inline-block; width: 60px; padding-left: 7px; background: url("/congest/images/map/bul_blue.gif") no-repeat 0 center;}
 .span_label {font-weight: bold; color: #2d2d2d; display: inline-block; width: 60px; padding-left: 7px; }
 .span_label_2 {font-weight: bold; color: #2d2d2d; display: inline-block; width: 70px; padding-left: 7px; }
 .sch_result {height: 100%; overflow-x: hidden; overflow-y: auto; width: 320px;}

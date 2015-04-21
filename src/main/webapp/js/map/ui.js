@@ -16,13 +16,12 @@
 		 MapLayoutHandle.menuSelection();
 		 MapLayoutHandle.leftMenuTabSelection();
 		 MapLayoutHandle.mapResize();
+		 MapLayoutHandle.grayScaleSelection();
 		 BaseMapSelection.vworldBaseMap();
-		 BaseMapSelection.vworldGrayMap();
 		 BaseMapSelection.vworldSatelliteMap();
 		 BaseMapSelection.googleBaseMap();
 		 BaseMapSelection.googleSatelliteMap();
 		 BaseMapSelection.openStreetMap();
-		 BaseMapSelection.openStreetGrayMap();
 		 MapAdditionalInfoSelection.vworldHybridMapSelection();
 		 MapAdditionalInfoSelection.realTrafficInfo();
 		 MapAdditionalInfoSelection.mutilMapInfo();
@@ -83,7 +82,32 @@
 			$("#faq_info").addClass("menu_selected");
 		}
  	};
-	 
+ 	
+/********************************************************************************
+  * 기      능   :  지도 GrayScale 선택
+  * @param obj	:
+  * @return  	:
+  ********************************************************************************/
+ 	MapLayoutHandle.grayScaleSelection = function(){
+ 		$('input[name="color_option"]').change(function(){
+ 			var checkId = $('#base_map_select').find('.active').attr('id');
+ 			if($(this).val() == "basic"){
+ 	 			if(checkId == 'vworld_base_map'){
+ 	 				changeMapBaseLayer("vBaseMap");
+ 	 			}else if(checkId == 'openstreet_base_map' ){
+ 	 				changeMapBaseLayer("openStreetMap");
+ 	 			}
+ 		    	$('#google_base_map').fadeIn('fast');
+ 		    }else{
+ 	 			if(checkId == 'vworld_base_map'){
+ 	 				changeMapBaseLayer("vGrayMap");
+ 	 			}else if(checkId == 'openstreet_base_map' ){
+ 	 				changeMapBaseLayer("openStreetGrayMap");
+ 	 			}
+ 		    	$('#google_base_map').fadeOut('fast');
+ 		    }
+ 		});
+ 	};
 /********************************************************************************
  * 기      능   :  지도영역확장
  * @param obj	:
@@ -172,29 +196,28 @@
 	 
 	BaseMapSelection.vworldBaseMap = function(){
 		$('#vworld_base_map').click(function() {
-			if($(this).hasClass('active') == true){
-				console.log("이미 호출되었음!")
+			var color_option = $('input[name="color_option"]:checked').val();
+			if( color_option == "basic" ){ // grayscale 
+				if($(this).hasClass('active') == true){
+					console.log("이미 호출되었음!")
+				}else{
+					$("#base_map_select").children().removeClass('active');
+					$(this).toggleClass('active');
+					changeMapBaseLayer("vBaseMap");
+				}
 			}else{
-				$("#base_map_select").children().removeClass('active');
-				$(this).toggleClass('active');
-				changeMapBaseLayer("vBaseMap");
-			}
+				if($(this).hasClass('active') == true){
+					console.log("이미 호출되었음!")
+				}else{
+					$("#base_map_select").children().removeClass('active');
+					$(this).toggleClass('active');
+					changeMapBaseLayer("vGrayMap");
+				}
+			}	
+			
 		});
 	};
 	
-	BaseMapSelection.vworldGrayMap = function(){
-		$('#vworld_gray_map').click(function() {
-			if($(this).hasClass('active') == true){
-				console.log("이미 호출되었음!")
-			}else{
-				$("#base_map_select").children().removeClass('active');
-				$(this).toggleClass('active');
-				changeMapBaseLayer("vGrayMap");
-			}
-		});
-	};
-	
- 	
 	BaseMapSelection.vworldSatelliteMap = function(){
  		$('#vworld_satellite_map').click(function() {
 			if($(this).hasClass('active') == true){
@@ -233,31 +256,28 @@
  	
  	BaseMapSelection.openStreetMap = function(){
 		$('#openstreet_base_map').click(function() {
-			if($(this).hasClass('active') == true){
-				console.log("이미 호출되었음!")
+			var color_option = $('input[name="color_option"]:checked').val();
+			if( color_option == "basic" ){ // grayscale 
+				if($(this).hasClass('active') == true){
+					console.log("이미 호출되었음!")
+				}else{
+					$("#base_map_select").children().removeClass('active');
+					$(this).toggleClass('active');
+					changeMapBaseLayer("openStreetMap");
+				}
 			}else{
-				$("#base_map_select").children().removeClass('active');
-				$(this).toggleClass('active');
-				changeMapBaseLayer("openStreetMap");
+				if($(this).hasClass('active') == true){
+					console.log("이미 호출되었음!")
+				}else{
+					$("#base_map_select").children().removeClass('active');
+					$(this).toggleClass('active');
+					changeMapBaseLayer("openStreetGrayMap");
+				}
 			}
 		});
 		
 	};
 	
- 	BaseMapSelection.openStreetGrayMap = function(){
-		$('#openstreet_gray_map').click(function() {
-			if($(this).hasClass('active') == true){
-				console.log("이미 호출되었음!")
-			}else{
-				$("#base_map_select").children().removeClass('active');
-				$(this).toggleClass('active');
-				changeMapBaseLayer("openStreetGrayMap");
-			}
-		});
-	};
-	
-	
-	 
  /********************************************************************************
   * 기      능   :  지도 부가기능 선택
   * @param obj	:
@@ -524,6 +544,8 @@
 	 			jsonp : "callback"
   			}
  		);
+ 		
+ 		
  	}
  	
 	/********************************************************************************

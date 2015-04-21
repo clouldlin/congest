@@ -23,7 +23,6 @@ var LINK_LAYER = "LINK_LAYER";
 var searchMarkers		= null;
 var landCodeMarkers		= null;
 
-
 /*
 var infoStyleMap = new OpenLayers.StyleMap({
     "default": new OpenLayers.Style({
@@ -36,7 +35,6 @@ var infoStyleMap = new OpenLayers.StyleMap({
     })
 });
 */
-
 
 // var map_1 = null;
 // var map_2 = null;
@@ -66,8 +64,19 @@ var map_location = null;
   * @param obj	:
   * @return  	:
   ********************************************************************************/
-  var map_init = function (baselayerName){
+	 function handleGetCurrentPosition(location){
+	    alert(location.coords.latitude);
+	    alert(location.coords.longitude);
+	}
+	 
+	 function onError(){
+		 alert("error");
+	 }
+	 
+	 var map_init = function (baselayerName){
 	  	
+		// if(navigator.geolocation) navigator.geolocation.getCurrentPosition(handleGetCurrentPosition, onError);
+	  
 	  	OpenLayers.IMAGE_RELOAD_ATTEMPTS = 0;
 		OpenLayers.Util.onImageLoadErrorColor = "transparent";
 	  
@@ -94,8 +103,6 @@ var map_location = null;
 		
 		vGrayMap 	= new vworld.Layers.Gray('VGRAY'); 	
 		map.addLayer(vGrayMap);
-		
-		// vBaseMap 	= new vworld.Layers.Midnight('VMIDNIGHT');  // Midnight지도
 		
 		vHybridMap 		= new vworld.Layers.Hybrid('VHYBRID'); 		// 하이브리드지도
 		map.addLayer(vHybridMap);
@@ -168,12 +175,22 @@ var map_location = null;
 		map.zoomToExtent(mapBounds.transform(map.displayProjection, map.projection)); 	
 		map.setCenter(new OpenLayers.LonLat(14243425.793355, 4342305.8698004), 8);
 		
+	    var click = new OpenLayers.Control.Click();
+	    map.addControl(click);
+	    click.activate();
+		
+		// map.events.register('click', map, function (e) {
+		//	 console.log(e);
+		//	 var lonlat = map.getLonLatFromPixel(e.xy);
+		//     console.log("You clicked near " + lonlat.lat + " N, " + lonlat.lon + " E");
+  	    // });
+		
 		/*	
 		 map.events.register('move', map, function (e) {
   	       	 $('#map').addClass('animated-grayscale');
   	     });
   	    */
-  		setWMSGetFeatureInfo();
+  		// setWMSGetFeatureInfo();
   		
   		// 검색 결과용 Marker를 생성
   		searchMarkers = new OpenLayers.Layer.Markers("SearchResultMarkers");   		
@@ -265,7 +282,7 @@ var map_location = null;
  		// OpenStreetMap	
  		case "openStreetGrayMap" : 
 		if(openStreetGrayMap == null){
-			openStreetGrayMap = new OpenLayers.Layer.OSM('Simple OSM Map', null);
+			openStreetGrayMap = new OpenLayers.Layer.OSM('Simple OSM Map_1', null);
  	        map.addLayer(openStreetGrayMap);
 		}
         map.setBaseLayer(openStreetGrayMap);	
@@ -280,6 +297,27 @@ var map_location = null;
  	map.setCenter(lonlat, zoomlevel);
  }
  
+ // WGS84 좌표 변환  
+ var convertWGS84 = function(lon, lat) {
+ 	var lonlat = new OpenLayers.LonLat(lon, lat);
+ 	lonlat.transform(map.baseLayer.projection, map.displayProjection);
+ 	
+ 	var zoneCheckboxValues = [];
+ 	var roadCheckboxValues = [];
+ 	
+ 	$('input[name="zone"]:checked').each(function(index) {
+ 		zoneCheckboxValues.push($(this).val());
+ 	});
+ 	
+ 	$('input[name="road_level"]:checked').each(function(index) {
+ 		roadCheckboxValues.push($(this).val());
+ 	});
+ 	  
+ 	var allData = {'lon' : lonlat.lon, 'lat' : lonlat.lat, 'zone' : zoneCheckboxValues, 'roadLevel' : roadCheckboxValues};
+ 	
+ 	var featureInfo = requestJsonData(baseUrl+'map/getFeatureInfo.do',allData, 'get');
+ 	console.log(featureInfo);
+ }
  
 // ITS에서 WMS 데이터를 받아오기 위한 콜백 함수
 var callback_ITSTrafficInfo_URL = function(bounds) {
@@ -379,6 +417,11 @@ var setZoneVisibility = function() {
 	var tlayername_sigungu 	= id_sigungu_value + "_" + indexValue + "_" + periodValue;
 	var tlayername_emd 		= id_emd_value + "_" + indexValue + "_" + periodValue;
 
+	
+	console.log("시도별     :" + tlayername_sido);
+	console.log("시군구별   :" + tlayername_sigungu);
+	console.log("읍면동별   :" + tlayername_emd);
+	
 	if (is_zone_sido == true) {
 		if (isLayerCreated(tlayername_sido) == false) gCurrentZoneLayer_sido = createZone(tlayername_sido);
 	}else{
@@ -434,6 +477,9 @@ var setLinkLayerVisibility = function(){
 	var indexValue = document.getElementById("index").value;
 	var periodValue = $(':radio[name="period"]:checked').val();
 	var tparamlayers = "klink_" + indexValue + "_" + periodValue;
+	
+	console.log("도로별   :" + tparamlayers);
+	
 	var tlayer = new OpenLayers.Layer.WMS(
 		LINK_LAYER,
 		'http://192.168.40.4:9090/geoserver/congestion/wms',

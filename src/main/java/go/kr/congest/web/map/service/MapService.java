@@ -16,4 +16,6 @@ public interface MapService {
 
 	List<?> indexCodeList(Map<String, String> commandMap) throws Exception;
 
+	List<?> getFeatureInfoList(Map<String, String> commandMap) throws Exception;
+
 }

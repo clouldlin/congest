@@ -29,4 +29,8 @@ public class MapDAO extends EgovAbstractDAO {
 	public List<?> indexCodeList(Map<String, String> commandMap) throws Exception {
 		return list("MapSQL001.indexCodeList", commandMap);
 	}
+
+	public List<?> getFeatureInfoList(Map<String, String> commandMap) throws Exception {
+		return list("MapSQL001.getFeatureInfoList", commandMap);
+	}
 }

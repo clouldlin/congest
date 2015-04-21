@@ -42,4 +42,9 @@ public class MapServiceImpl extends AbstractServiceImpl implements MapService {
 		return mapdDAO.indexCodeList(commandMap);
 	}
 
+	@Override
+	public List<?> getFeatureInfoList(Map<String, String> commandMap) throws Exception {
+		return mapdDAO.getFeatureInfoList(commandMap);
+	}
+
 }

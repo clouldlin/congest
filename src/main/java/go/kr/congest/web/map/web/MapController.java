@@ -90,4 +90,25 @@ public class MapController extends CommonAbstarctController {
 		return "map/" + page;
 	}
 	
+	@RequestMapping("getFeatureInfo.do")
+	public String getFeatureInfoList(Map<String, String> commandMap, 
+									@RequestParam(value="zone[]", required = false) List<String> zoneList, 
+									@RequestParam(value="roadLevel[]", required = false) List<String> roadLevelList,
+									ModelMap model, HttpServletRequest request) throws Exception {
+		
+		List<?> returnList = null;
+
+		//logger.info(commandMap.toString());
+		//logger.info(zoneList.toString());
+		//logger.info(roadLevelList.toString());
+		
+		String coord = "POINT(" + commandMap.get("lon") + " " + commandMap.get("lat") + ")";
+		
+		commandMap.put("coord", coord);
+		returnList = mapService.getFeatureInfoList(commandMap);
+		
+		logger.info(returnList.toString());
+		model.addAttribute("returnList",returnList);
+		return "jsonView";
+	}
 }
